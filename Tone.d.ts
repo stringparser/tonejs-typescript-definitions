@@ -1,4 +1,4 @@
-/// <reference path="WebAudio.d.ts" />
+import './WebAudio';
 
 // Type definitions for TONE.JS
 // Project: https://github.com/Tonejs/Tone.js
@@ -9,6 +9,8 @@
 //var Tone: {
 //    new(inputs?: number, outputs?: number): Tone;
 //}
+
+export = Tone;
 
 interface Tone {
     new(inputs?: number, outputs?: number): Tone;
@@ -57,7 +59,7 @@ interface Tone {
     toSeconds(time?: number, now?: number): number;
 }
 
-declare namespace Tone {
+declare module Tone {
 
     var Abs: {
         new(): Tone.Abs;
@@ -1127,8 +1129,4 @@ declare namespace Tone {
         curve: number[];
         oversample: string;
     }
-}
-
-declare module 'tone' {
-    export default Tone;
 }
