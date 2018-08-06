@@ -57,7 +57,7 @@ interface Tone {
     toSeconds(time?: number, now?: number): number;
 }
 
-declare module Tone {
+declare namespace Tone {
 
     var Abs: {
         new(): Tone.Abs;
@@ -420,7 +420,7 @@ declare module Tone {
     }
 
     class Frequency extends TimeBase {
-        constructor( val: string | number, units?: string ): TimeBase;
+        constructor( val: string | number, units?: string );
         toMidi( ): number;
         toNote( ): string;
         transpose ( interval: number ): Frequency;
@@ -1127,4 +1127,8 @@ declare module Tone {
         curve: number[];
         oversample: string;
     }
+}
+
+declare module 'tone' {
+    export default Tone;
 }
